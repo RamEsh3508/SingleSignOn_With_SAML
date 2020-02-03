@@ -25,7 +25,7 @@ namespace SingleSignOn_With_SAML
 
             HttpContext.Current.GetOwinContext().Authentication.SignOut(
                 new AuthenticationProperties { RedirectUri = callbackUrl },
-                OpenIdConnectAuthenticationDefaults.AuthenticationType,
+                "Password",
                 CookieAuthenticationDefaults.AuthenticationType);
         }
 
@@ -35,7 +35,7 @@ namespace SingleSignOn_With_SAML
             {
                 HttpContext.Current.GetOwinContext().Authentication.Challenge(
                     new AuthenticationProperties { RedirectUri = "/" },
-                    OpenIdConnectAuthenticationDefaults.AuthenticationType);
+					"Password");
             }
         }
 
